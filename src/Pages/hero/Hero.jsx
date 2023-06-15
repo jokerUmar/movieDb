@@ -55,7 +55,6 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
     setPage(params.number * 1);
   }, []);
 
-
   return (
     <div className="hero">
       <div className="movie_container">

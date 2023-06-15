@@ -30,7 +30,6 @@
     position: relative;
 }
 
-
 .movies_rating {
     backdrop-filter: blur(15px);
     background-color: #000;
@@ -59,7 +58,6 @@
     color: white !important;
 }
 
-
 .hero_pagination {
     max-width: 1000px !important;
     width: 100%;
@@ -69,12 +67,13 @@
 }
 
 @media screen and (max-width:470px) {
-    .hero .movie_container{
+    .hero .movie_container {
         grid-gap: 0;
         display: flex;
         flex-wrap: wrap;
     }
-    .card{
+
+    .card {
         height: 250px;
         margin: 10px 5px;
         width: 46%;

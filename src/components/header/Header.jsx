@@ -13,8 +13,6 @@ function Header({ searchBool, setSearchBool, activePage, setPage }) {
     color: "#ced6e0",
   };
 
-  let { movieType, setMovieType } = useContext(MovieTypeContext);
-
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [hideBool, setHideBool] = useState(false);
 
@@ -75,7 +73,7 @@ function Header({ searchBool, setSearchBool, activePage, setPage }) {
           <li className="header_item">
             <NavLink
               style={styleEl}
-              to={"/Movies/upcoming/" + activePage}
+              to={"/Movies/upcoming"}
               className={({ isActive }) =>
                 isActive
                   ? "header_active header_navlink"
@@ -87,8 +85,8 @@ function Header({ searchBool, setSearchBool, activePage, setPage }) {
           </li>
           <li className="header_item">
             <NavLink
-            style={styleEl}
-              to={"/Movies/top_rated/" + activePage}
+              style={styleEl}
+              to={"/Movies/top_rated"}
               className={({ isActive }) =>
                 isActive
                   ? "header_active header_navlink"
