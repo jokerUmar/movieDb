@@ -1,12 +1,12 @@
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import useSpeechToText from "react-hook-speech-to-text";
 import "./microphone.css";
-import { Box, Button, Modal, Typography } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 import MicIcon from "@mui/icons-material/Mic";
 
-export default function Microphone({ hideBool }) {
+ function Microphone({ hideBool }) {
   const {
     error,
     interimResult,
@@ -89,3 +89,5 @@ export default function Microphone({ hideBool }) {
     </>
   );
 }
+
+export default memo(Microphone)

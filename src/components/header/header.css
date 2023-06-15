@@ -189,10 +189,15 @@
     .header_list{
         max-width: 290px;
         width: 100%;
+        flex-wrap: wrap;
     }
 
     .header_item{
         font-size: 12px;    
+    }
+
+    .header_item:nth-child(3){
+        margin-top: 15px !important;
     }
 
 }

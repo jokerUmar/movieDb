@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { memo, useContext, useEffect, useState } from "react";
 import "./hero.css";
 import { useParams } from "react-router";
 import { MovieTypeContext } from "../../context/MovieTypeContext";
@@ -17,7 +17,6 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
   const [movieList, setMovieList] = useState([]);
   const [LoadingData, setLoadingData] = useState(false);
 
-  setMovieType(params.MovieType);
   setGenreId(params.number);
 
   function movieListApi() {
@@ -106,4 +105,4 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
   );
 }
 
-export default Hero;
+export default memo(Hero);

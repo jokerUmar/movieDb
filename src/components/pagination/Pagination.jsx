@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { Pagination, MediaQuery } from "@mantine/core";
 import { useParams, useNavigate } from "react-router";
 
@@ -38,4 +38,4 @@ function BasicPagination({ activePage, setPage, movieData }) {
   );
 }
 
-export default BasicPagination;
+export default memo(BasicPagination);

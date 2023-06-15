@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, memo } from "react";
 import "./header.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +12,8 @@ function Header({ searchBool, setSearchBool, activePage, setPage }) {
     fontSize: "18px",
     color: "#ced6e0",
   };
+
+  let { movieType, setMovieType } = useContext(MovieTypeContext);
 
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [hideBool, setHideBool] = useState(false);
@@ -66,6 +68,7 @@ function Header({ searchBool, setSearchBool, activePage, setPage }) {
                   ? "header_active header_navlink"
                   : "header_unActive header_navlink"
               }
+              onClick={() => setMovieType("popular")}
             >
               Popular
             </NavLink>
@@ -79,6 +82,7 @@ function Header({ searchBool, setSearchBool, activePage, setPage }) {
                   ? "header_active header_navlink"
                   : "header_unActive header_navlink"
               }
+              onClick={() => setMovieType("upcoming")}
             >
               Upcoming
             </NavLink>
@@ -92,6 +96,7 @@ function Header({ searchBool, setSearchBool, activePage, setPage }) {
                   ? "header_active header_navlink"
                   : "header_unActive header_navlink"
               }
+              onClick={() => setMovieType("top_rated")}
             >
               Top Rated
             </NavLink>
@@ -126,4 +131,4 @@ function Header({ searchBool, setSearchBool, activePage, setPage }) {
   );
 }
 
-export default Header;
+export default memo(Header);
