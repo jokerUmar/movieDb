@@ -1,0 +1,82 @@
+.hero {
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 80px;
+}
+
+.hero .movie_container {
+    grid-column-gap: 20px;
+    grid-row-gap: 55px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 1500px;
+    position: relative;
+    width: 90%;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    background-size: contain;
+    backdrop-filter: blur(15px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0;
+    border-width: 1px;
+    color: var(--color4);
+    overflow: hidden;
+    position: relative;
+}
+
+
+.movies_rating {
+    backdrop-filter: blur(15px);
+    background-color: #000;
+    font-weight: 500;
+    left: 0;
+    padding: 0 10px;
+    top: 0;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.movies_year {
+    background-color: #ff4757;
+    bottom: 0;
+    padding: 0 5px;
+    right: 0;
+    z-index: 101;
+    color: var(--color2);
+    font-family: var(--fontVarela);
+    font-size: 16px;
+    position: absolute;
+}
+
+.hero_pagination {
+    color: white !important;
+}
+
+
+.hero_pagination {
+    max-width: 1000px !important;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width:470px) {
+    .hero .movie_container{
+        grid-gap: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card{
+        height: 250px;
+        margin: 10px 5px;
+        width: 46%;
+    }
+}

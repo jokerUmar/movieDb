@@ -1,0 +1,20 @@
+
+.access_header{
+    height: 60px;
+    padding: 20px;
+}
+
+.access_body{
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.access_body h1{
+    background-color: var(--color3);
+    color: var(--color2);
+    padding: 10px 20px;
+    font-size: 50px;
+    font-family: var(--fontVarela);
+}

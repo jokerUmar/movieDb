@@ -1,0 +1,13 @@
+.not_found_box {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.not_found_box  h1{
+    color: white;
+    font-family: var(--fontVarela);
+}

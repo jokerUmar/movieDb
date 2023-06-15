@@ -1,0 +1,40 @@
+.footer{
+    height: 300px;
+    width: 100%;
+    background-image: url("../../assets/images/img1.jpg");
+    background-size: cover;
+    display: flex;
+}
+
+.footer .container{
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer_logo{   
+    color: var(--color3);
+    font-family: var(--fontVarela);
+}
+
+.founder , .used , .texnologies{
+    color: white;
+    background-color: black;
+    margin: 5px 0;
+    width: 300px;
+    font-size: 18px;
+    padding: 5px;
+    font-family: var(--fontVarela);
+}
+
+@media only screen  and  (max-width:370px) {
+
+    .footer .container{
+        padding: 0 10px;
+    }
+
+    
+}
+
+
