@@ -1,6 +1,6 @@
 import React, { memo, useContext, useEffect, useState } from "react";
 import "./hero.css";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { MovieTypeContext } from "../../context/MovieTypeContext";
 import BasicPagination from "../../components/pagination/Pagination";
 import axios from "axios";
@@ -10,6 +10,7 @@ import Loader from "../../components/loader/Loader";
 
 function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
   let params = useParams();
+  let navigate = useNavigate();
 
   let { movieType, setMovieType } = useContext(MovieTypeContext);
   let { movieData, setMovieData } = useContext(MovieDataContext);
@@ -29,6 +30,7 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
     }
   }
 
+ 
   useEffect(() => {
     setLoadingData(false);
     axios
@@ -54,8 +56,6 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
     setPage(params.number * 1);
   }, []);
 
-  console.log(movieList);
-
   return (
     <div className="hero">
       <div className="movie_container">
@@ -74,7 +74,16 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
                     <div className="info_card">
                       <div className="info_box">
                         <h3 className="info_title">{e.title}</h3>
-                        <div className="info_btn">Watch</div>
+                        <div
+                          className="info_btn"
+                          onClick={() =>
+                            navigate(
+                              `/${params.Movies}/${movieType}/${activePage}/${e.id}`
+                            )
+                          }
+                        >
+                          Watch
+                        </div>
                       </div>
                     </div>
                     <article className="movies_rating">

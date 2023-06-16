@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import Access from "./components/access/Access";
-import { Navigate, Route, Routes, useLocation,  } from "react-router";
+import { Navigate, Route, Routes, useLocation } from "react-router";
 import Header from "./components/header/Header";
 import SimpleSlider from "./components/slider/Slider";
 import Footer from "./components/footer/Footer";
 import Hero from "./Pages/hero/Hero";
+import MovieShow from "./Pages/movieShow/MovieShow";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -26,7 +27,6 @@ function App() {
     return `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=en`;
   }
 
-
   useEffect(() => {
     setLoading(false);
     axios
@@ -44,10 +44,7 @@ function App() {
         ""
       ) : (
         <>
-          <Header
-            activePage={activePage}
-            setPage={setPage}
-          />
+          <Header activePage={activePage} setPage={setPage} />
           <div className="container_movie">
             <SimpleSlider genreList={genreList} />
           </div>
@@ -96,7 +93,8 @@ function App() {
               <Access />
             )
           }
-        ></Route>
+        />
+        <Route path="/:Movies/:MovieType/:number/:id" element={<MovieShow api_key={api_key} />} />
       </Routes>
 
       {!loading ? (

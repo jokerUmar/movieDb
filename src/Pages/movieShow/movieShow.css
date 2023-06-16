@@ -1,0 +1,159 @@
+.show {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    z-index: 99;
+}
+
+.baclkdrop_image {
+    width: 100%;
+    height: 450px;
+    filter: blur(10px) brightness(.8);
+    object-fit: cover;
+}
+
+.out {
+    background-color: var(--color3);
+    color: white;
+    font-size: 18px;
+    padding: 5px 6px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 99;
+    cursor: pointer;
+    font-family: var(--fontOpen);
+    font-weight: 600;
+    width: 120px;
+    text-align: center;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.movie-right_box {
+    color: white;
+    margin-left: 50px;
+    width: 70%;
+    margin-top: 10px;
+}
+
+
+.movie_info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 40px;
+    position: absolute;
+    top: 160px;
+}
+
+.movie_info img {
+    width: 250px;
+    height: 350px;
+}
+
+
+.movie_info_title {
+    background-color: black;
+    display: inline-block;
+    padding: 3px;
+}
+
+.movie_info_overview {
+    background-color: black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    font-size: 18px;
+    line-height: 1.7;
+    font-family: var(--fontVarela);
+    width: 80%;
+}
+
+.movie_info_genres-box {
+    display: flex;
+}
+
+.movie_info_average {
+    background-color: black;
+    color: var(--color2);
+    padding: 0 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.movie_genres-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie_info_genre {
+    background-color: var(--color3);
+    margin-left: 10px;
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+.video_box {
+    margin-top: 150px;
+    height: 550px;
+}
+
+.video_title {
+    color: var(--color3);
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:800px) {
+    .video_box {
+        margin-top: 210px;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .movie_info_img {
+        width: 350px !important;
+        height: 400px !important;
+    }
+    
+    .movie_info {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 20px;
+        padding: 10px;
+    }
+    
+    .movie-right_box{
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .movie_info_title{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .video_box{
+        display: none;
+    }
+    
+}
+
+
+@media screen and (max-width:460px) {
+    .movie-right_box{
+        margin-left: 0;
+    }
+    .movie_info_overview{
+        width: 90%; 
+    }
+}
