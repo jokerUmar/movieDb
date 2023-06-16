@@ -10,7 +10,6 @@ import Hero from "./Pages/hero/Hero";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [searchBool, setSearchBool] = useState(false);
   const [genreList, setGenreList] = useState([]);
   const [genreId, setGenreId] = useState(1);
   const [activePage, setPage] = useState(1);
@@ -26,6 +25,7 @@ function App() {
   function genreListApi() {
     return `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=en`;
   }
+
 
   useEffect(() => {
     setLoading(false);
@@ -46,8 +46,6 @@ function App() {
         <>
           <Header
             activePage={activePage}
-            searchBool={searchBool}
-            setSearchBool={setSearchBool}
             setPage={setPage}
           />
           <div className="container_movie">

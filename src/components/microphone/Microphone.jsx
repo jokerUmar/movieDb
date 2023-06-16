@@ -6,7 +6,7 @@ import "./microphone.css";
 import { Box, Modal, Typography } from "@mui/material";
 import MicIcon from "@mui/icons-material/Mic";
 
- function Microphone({ hideBool }) {
+function Microphone() {
   const {
     error,
     interimResult,
@@ -61,14 +61,12 @@ import MicIcon from "@mui/icons-material/Mic";
     setOpen(true);
   }
 
-  // console.log(results[results.length - 1].transcript);
 
   return (
     <>
       <FontAwesomeIcon
         onClick={handleMic}
         className="search_microphone"
-        style={hideBool ? { display: "none" } : { display: "inline-block" }}
         icon={faMicrophone}
       />
       <Modal
@@ -90,4 +88,4 @@ import MicIcon from "@mui/icons-material/Mic";
   );
 }
 
-export default memo(Microphone)
+export default memo(Microphone);

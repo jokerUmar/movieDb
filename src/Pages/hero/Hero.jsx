@@ -54,6 +54,8 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
     setPage(params.number * 1);
   }, []);
 
+  console.log(movieList);
+
   return (
     <div className="hero">
       <div className="movie_container">
@@ -61,24 +63,32 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
           movieList.length > 0 ? (
             movieList.map((e) => {
               return (
-                <div
-                  key={e.id}
-                  className="card"
-                  style={{
-                    backgroundImage: `url( https://image.tmdb.org/t/p/w500${e.poster_path})`,
-                  }}
-                >
-                  <article className="movies_rating">
-                    <span style={{ fontSize: "18px", fontWeight: "600" }}>
-                      {e.vote_average}
-                    </span>
-                    <span>🔥</span>
-                  </article>
+                <>
+                  <div
+                    key={e.id}
+                    className="card"
+                    style={{
+                      backgroundImage: `url( https://image.tmdb.org/t/p/w500${e.poster_path})`,
+                    }}
+                  >
+                    <div className="info_card">
+                      <div className="info_box">
+                        <h3 className="info_title">{e.title}</h3>
+                        <div className="info_btn">Watch</div>
+                      </div>
+                    </div>
+                    <article className="movies_rating">
+                      <span style={{ fontSize: "18px", fontWeight: "600" }}>
+                        {e.vote_average}
+                      </span>
+                      <span>🔥</span>
+                    </article>
 
-                  <article className="movies_year">
-                    <p>{e.release_date.split("").slice(0, 4).join("")}</p>
-                  </article>
-                </div>
+                    <article className="movies_year">
+                      <p>{e.release_date.split("").slice(0, 4).join("")}</p>
+                    </article>
+                  </div>
+                </>
               );
             })
           ) : (
