@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import "./movieShow.css";
 import { useNavigate, useParams } from "react-router";
-import { MovieDataContext } from "../../context/MovieDataContext";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";

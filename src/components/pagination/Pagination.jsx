@@ -1,5 +1,5 @@
-import { memo, useContext, useState } from "react";
-import { Pagination, MediaQuery } from "@mantine/core";
+import { memo } from "react";
+import { Pagination } from "@mantine/core";
 import { useParams, useNavigate } from "react-router";
 
 function BasicPagination({ activePage, setPage, movieData }) {

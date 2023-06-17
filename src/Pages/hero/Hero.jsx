@@ -12,7 +12,7 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
   let params = useParams();
   let navigate = useNavigate();
 
-  let { movieType, setMovieType } = useContext(MovieTypeContext);
+  let { movieType } = useContext(MovieTypeContext);
   let { movieData, setMovieData } = useContext(MovieDataContext);
 
   const [movieList, setMovieList] = useState([]);

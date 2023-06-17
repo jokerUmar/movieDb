@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import Access from "./components/access/Access";
-import { Navigate, Route, Routes, useLocation } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import Header from "./components/header/Header";
 import SimpleSlider from "./components/slider/Slider";
 import Footer from "./components/footer/Footer";

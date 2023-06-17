@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,7 +13,7 @@ export default function Slider2({ movieInfo }) {
 
   useEffect(() => {
     if (movieInfo?.data?.videos.results.length > 0) {
-      setYouTubeBox(movieInfo?.data?.videos.results.slice(0, 4));
+      setYouTubeBox(movieInfo?.data?.videos.results.slice(1, 5));
     }
   }, []);
 
