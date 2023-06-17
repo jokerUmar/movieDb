@@ -8,6 +8,7 @@ import SimpleSlider from "./components/slider/Slider";
 import Footer from "./components/footer/Footer";
 import Hero from "./Pages/hero/Hero";
 import MovieShow from "./Pages/movieShow/MovieShow";
+import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -41,7 +42,7 @@ function App() {
   return (
     <>
       {!loading ? (
-        ""
+        <Access />
       ) : (
         <>
           <Header activePage={activePage} setPage={setPage} />
@@ -55,46 +56,55 @@ function App() {
         // Navigate
         <Route
           path="/Movies/popular"
-          element={<Navigate replace to={"/Movies/popular/1"} />}
+          element={<Navigate replace to={`/Movies/popular/${activePage}`} />}
         />
         <Route
           path="/Movies"
-          element={<Navigate replace to={"/Movies/popular/1"} />}
+          element={<Navigate replace to={`/Movies/popular/${activePage}`} />}
         />
         <Route
           path="/Movies/upcoming"
-          element={<Navigate replace to={"/Movies/upcoming/1"} />}
+          element={<Navigate replace to={`/Movies/upcoming/${activePage}`} />}
         />
         <Route
           path="/Movies/top_rated"
-          element={<Navigate replace to={"/Movies/top_rated/1"} />}
-        />
-        <Route
-          path="/MoviesByType/Genres"
-          element={<Navigate replace to="/MoviesByType/Genres" />}
+          element={<Navigate replace to={`/Movies/top_rated/${activePage}`} />}
         />
         <Route
           path="/"
-          element={<Navigate replace to={"/Movies/popular/1"} />}
+          element={<Navigate replace to={`/Movies/popular/${activePage}`} />}
         />
         // components
         <Route
           path={`/:Movies/:MovieType/:number`}
+          // element={
+          //   loading ? (
+          //     <Hero
+          //       api_key={api_key}
+          //       activePage={activePage}
+          //       setPage={setPage}
+          //       genreId={genreId}
+          //       setGenreId={setGenreId}
+          //     />
+          //   ) : (
+          //     <Access />
+          //   )
+          // }
           element={
-            loading ? (
-              <Hero
-                api_key={api_key}
-                activePage={activePage}
-                setPage={setPage}
-                genreId={genreId}
-                setGenreId={setGenreId}
-              />
-            ) : (
-              <Access />
-            )
+            <Hero
+              api_key={api_key}
+              activePage={activePage}
+              setPage={setPage}
+              genreId={genreId}
+              setGenreId={setGenreId}
+            />
           }
         />
-        <Route path="/:Movies/:MovieType/:number/:id" element={<MovieShow api_key={api_key} />} />
+        <Route
+          path="/:Movies/:MovieType/:number/:id"
+          element={<MovieShow api_key={api_key} />}
+        />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
 
       {!loading ? (

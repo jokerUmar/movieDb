@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import { Pagination } from "@mantine/core";
 import { useParams, useNavigate } from "react-router";
 
@@ -9,9 +9,10 @@ function BasicPagination({ activePage, setPage, movieData }) {
   function handlePage(e) {
     setPage(e);
     navigate(`/Movies/${params.MovieType}/${e}`);
+    console.log(e);
   }
 
-
+  
 
   return (
     <>

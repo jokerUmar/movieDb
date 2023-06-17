@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./movieShow.css";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
@@ -28,7 +28,7 @@ function MovieShow({ api_key }) {
   return (
     <div className="show">
       <div className="container">
-        <article className="out" onClick={() => navigate(-1)}>
+        <article className="out" onClick={() => window.history.back()}>
           <FontAwesomeIcon
             style={{ fontSize: "20px" }}
             icon={faCircleArrowLeft}

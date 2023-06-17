@@ -30,7 +30,6 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
     }
   }
 
- 
   useEffect(() => {
     setLoadingData(false);
     axios
@@ -50,6 +49,8 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
         setMovieData({});
         setLoadingData(true);
       });
+
+    setPage(params.number * 1);
   }, [movieType, activePage, genreId]);
 
   useEffect(() => {
