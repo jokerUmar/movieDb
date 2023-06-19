@@ -7,6 +7,7 @@ import axios from "axios";
 import { MovieDataContext } from "../../context/MovieDataContext";
 import NotFound from "../notFound/NotFound";
 import Loader from "../../components/loader/Loader";
+import { SearchListContext } from "../../context/SearchListContext";
 
 function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
   let params = useParams();
@@ -14,6 +15,7 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
 
   let { movieType } = useContext(MovieTypeContext);
   let { movieData, setMovieData } = useContext(MovieDataContext);
+  let { searchData, setSearchData } = useContext(SearchListContext);
 
   const [movieList, setMovieList] = useState([]);
   const [LoadingData, setLoadingData] = useState(false);
@@ -26,7 +28,7 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
     } else if (params.Movies == "Movies") {
       return `https://api.themoviedb.org/3/movie/${movieType}?api_key=${api_key}&language=en-US&page=${activePage}`;
     } else if (params.Movies == "search") {
-      return `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=tourist&page=${activePage}`;
+      return `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${params.MovieType}&page=${activePage}`;
     }
   }
 
@@ -39,6 +41,8 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
           setMovieList(res.data.results);
         } else if (params.Movies == "MoviesByType") {
           setMovieList(res.data.items);
+        } else if (params.Movies == "search") {
+          setMovieList(res.data.results);
         }
         setMovieData({ ...res });
         setLoadingData(true);
@@ -49,9 +53,8 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
         setMovieData({});
         setLoadingData(true);
       });
-
     setPage(params.number * 1);
-  }, [movieType, activePage, genreId]);
+  }, [movieType, activePage, genreId, searchData]);
 
   useEffect(() => {
     setPage(params.number * 1);
@@ -95,7 +98,7 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
                     </article>
 
                     <article className="movies_year">
-                      <p>{e.release_date.split("").slice(0, 4).join("")}</p>
+                      <p>{e?.release_date?.split("").slice(0, 4).join("")}</p>
                     </article>
                   </div>
                 </>
@@ -109,7 +112,7 @@ function Hero({ api_key, activePage, setPage, setGenreId, genreId }) {
         )}
       </div>
 
-      {params.Movies == "Movies" ? (
+      {params.Movies == "Movies" || params.Movies == "search" ? (
         <div className="hero_pagination">
           <BasicPagination
             movieData={movieData}

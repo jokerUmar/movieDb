@@ -56,48 +56,37 @@ function App() {
         // Navigate
         <Route
           path="/Movies/popular"
-          element={<Navigate replace to={`/Movies/popular/${activePage}`} />}
+          element={<Navigate replace to={`/Movies/popular/1`} />}
         />
         <Route
           path="/Movies"
-          element={<Navigate replace to={`/Movies/popular/${activePage}`} />}
+          element={<Navigate replace to={`/Movies/popular/1`} />}
         />
         <Route
           path="/Movies/upcoming"
-          element={<Navigate replace to={`/Movies/upcoming/${activePage}`} />}
+          element={<Navigate replace to={`/Movies/upcoming/1`} />}
         />
         <Route
           path="/Movies/top_rated"
-          element={<Navigate replace to={`/Movies/top_rated/${activePage}`} />}
+          element={<Navigate replace to={`/Movies/top_rated/1`} />}
         />
         <Route
           path="/"
-          element={<Navigate replace to={`/Movies/popular/${activePage}`} />}
+          element={<Navigate replace to={`/Movies/popular/1`} />}
         />
         // components
         <Route
           path={`/:Movies/:MovieType/:number`}
-          // element={
-          //   loading ? (
-          //     <Hero
-          //       api_key={api_key}
-          //       activePage={activePage}
-          //       setPage={setPage}
-          //       genreId={genreId}
-          //       setGenreId={setGenreId}
-          //     />
-          //   ) : (
-          //     <Access />
-          //   )
-          // }
           element={
-            <Hero
-              api_key={api_key}
-              activePage={activePage}
-              setPage={setPage}
-              genreId={genreId}
-              setGenreId={setGenreId}
-            />
+            loading && (
+              <Hero
+                api_key={api_key}
+                activePage={activePage}
+                setPage={setPage}
+                genreId={genreId}
+                setGenreId={setGenreId}
+              />
+            )
           }
         />
         <Route

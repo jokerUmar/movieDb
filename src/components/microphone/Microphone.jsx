@@ -5,8 +5,9 @@ import useSpeechToText from "react-hook-speech-to-text";
 import "./microphone.css";
 import { Box, Modal, Typography } from "@mui/material";
 import MicIcon from "@mui/icons-material/Mic";
+import { useNavigate } from "react-router";
 
-function Microphone() {
+function Microphone({ inputShow, setSearchData, searchData }) {
   const {
     error,
     interimResult,
@@ -45,22 +46,25 @@ function Microphone() {
   };
 
   const [open, setOpen] = useState(false);
+  let navigate = useNavigate();
 
   function handleOpen() {
     setOpen(true);
   }
+
   function handleClose() {
     setOpen(false);
     stopSpeechToText();
+    setSearchData(results[results.length - 1].transcript);
+    navigate(`search/${results[results.length - 1].transcript}/1`);
   }
 
   if (error) return <p>Web Speech API is not available in this browser 🤷‍</p>;
 
   function handleMic() {
     isRecording ? stopSpeechToText() : startSpeechToText();
-    setOpen(true);
+    handleOpen();
   }
-
 
   return (
     <>
@@ -68,6 +72,7 @@ function Microphone() {
         onClick={handleMic}
         className="search_microphone"
         icon={faMicrophone}
+        style={inputShow ? { display: "inline-block" } : { display: "none" }}
       />
       <Modal
         open={open}

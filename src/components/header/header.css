@@ -67,7 +67,6 @@
 }
 
 
-
 .header_input {
     outline: none;
     border: none;
@@ -168,9 +167,9 @@
 }
 
 @media only screen and (max-width: 450px) {
-    .header_input {
-        max-width: 250px;
-        width: 100%;
+
+    .header_input{
+        display: none;
     }
 
     .header_logo {
@@ -181,6 +180,7 @@
         display: flex;
         align-items: center;
         margin-top: 4px;
+        justify-content: flex-end;
     }
 
     .search_icon {

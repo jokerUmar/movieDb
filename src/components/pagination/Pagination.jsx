@@ -8,11 +8,11 @@ function BasicPagination({ activePage, setPage, movieData }) {
 
   function handlePage(e) {
     setPage(e);
-    navigate(`/Movies/${params.MovieType}/${e}`);
+    navigate(`/${params.Movies}/${params.MovieType}/${e}`);
     console.log(e);
   }
 
-  
+  console.log();
 
   return (
     <>

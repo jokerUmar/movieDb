@@ -13,7 +13,7 @@ export default function Slider2({ movieInfo }) {
 
   useEffect(() => {
     if (movieInfo?.data?.videos.results.length > 0) {
-      setYouTubeBox(movieInfo?.data?.videos.results.slice(1, 5));
+      setYouTubeBox(movieInfo?.data?.videos.results.slice(0, 5));
     }
   }, []);
 
